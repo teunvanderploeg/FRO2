@@ -74,43 +74,7 @@ h1 {
   width: auto;
   height: 1500px;
 }
-#project1 h2 {
-  padding-top: 0;
-  text-align: center;
-  font-size: 40px;
-}
-#project1:hover {
-  background-color: lightgray;
-  color: black;
-}
-#project2 h2 {
-  padding-top: 0;
-  text-align: center;
-  font-size: 40px;
-}
-#project2:hover {
-  background-color: lightgray;
-  color: black;
-}
-#project3 h2 {
-  padding-top: 0;
-  text-align: center;
-  font-size: 40px;
-}
-#project3:hover {
-  background-color: lightgray;
-  color: black;
-}
-#project4 h2 {
-  padding-top: 0;
-  text-align: center;
-  font-size: 40px;
-}
-#project4:hover {
-  background-color: lightgray;
-  color: black;
-}
-#project1 {
+.projects {
   margin-top: 5em;
   background-color: gray;
   height: 400px;
@@ -119,42 +83,14 @@ h1 {
   overflow: hidden;
   float: left;
 }
-
-#project2 {
-  margin-top: 5em;
-  background-color: gray;
-  height: 400px;
-  width: 300px;
-  margin-left: 7.5%;
-  overflow: hidden;
-  float: left;
+.projects h2 {
+  padding-top: 0;
+  text-align: center;
+  font-size: 40px;
 }
-#project2:hover {
+.projects:hover {
   background-color: lightgray;
-}
-#project3 {
-  margin-top: 5em;
-  background-color: gray;
-  height: 400px;
-  width: 300px;
-  margin-left: 7.5%;
-  overflow: hidden;
-  float: left;
-}
-#project3:hover {
-  background-color: lightgray;
-}
-#project4 {
-  margin-top: 5em;
-  background-color: gray;
-  height: 400px;
-  width: 300px;
-  margin-left: 7.5%;
-  overflow: hidden;
-  float: left;
-}
-#project4:hover {
-  background-color: lightgray;
+  color: black;
 }
 
 #contactpage {
