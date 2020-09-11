@@ -1,0 +1,203 @@
+html {
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #141414;
+  color: white;
+}
+h1 {
+  padding-top: 5em;
+  text-align: center;
+  font-size: 80px;
+}
+.menu {
+  font-size: 20px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #1414148e;
+}
+.menu a {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  overflow: hidden;
+  padding-right: 5%;
+}
+.menu a:hover {
+  color: gray;
+}
+
+#homepage {
+  width: auto;
+  height: 1500px;
+}
+
+#teunpage {
+  width: auto;
+  height: 1500px;
+}
+.teunpagebody {
+  display: flex;
+  margin-top: 5em;
+}
+.teunpak {
+  width: auto;
+  height: 500px;
+  border: 11px inset #5c5c5c;
+  border-radius: 0px 40px 0px 40px;
+  margin-left: 300px;
+  margin-top: 5em;
+}
+
+#schoolpage {
+  width: auto;
+  height: 1500px;
+}
+.schoolpagebody {
+  display: flex;
+  margin-top: 5em;
+}
+.maplaatje {
+  width: auto;
+  height: 300px;
+  border: 11px inset #5c5c5c;
+  border-radius: 0px 40px 0px 40px;
+  margin-left: 300px;
+  margin-top: 5em;
+}
+
+#projectpage {
+  width: auto;
+  height: 1500px;
+}
+#project1 h2 {
+  padding-top: 0;
+  text-align: center;
+  font-size: 40px;
+}
+#project1:hover {
+  background-color: lightgray;
+  color: black;
+}
+#project2 h2 {
+  padding-top: 0;
+  text-align: center;
+  font-size: 40px;
+}
+#project2:hover {
+  background-color: lightgray;
+  color: black;
+}
+#project3 h2 {
+  padding-top: 0;
+  text-align: center;
+  font-size: 40px;
+}
+#project3:hover {
+  background-color: lightgray;
+  color: black;
+}
+#project4 h2 {
+  padding-top: 0;
+  text-align: center;
+  font-size: 40px;
+}
+#project4:hover {
+  background-color: lightgray;
+  color: black;
+}
+#project1 {
+  margin-top: 5em;
+  background-color: gray;
+  height: 400px;
+  width: 300px;
+  margin-left: 7.5%;
+  overflow: hidden;
+  float: left;
+}
+
+#project2 {
+  margin-top: 5em;
+  background-color: gray;
+  height: 400px;
+  width: 300px;
+  margin-left: 7.5%;
+  overflow: hidden;
+  float: left;
+}
+#project2:hover {
+  background-color: lightgray;
+}
+#project3 {
+  margin-top: 5em;
+  background-color: gray;
+  height: 400px;
+  width: 300px;
+  margin-left: 7.5%;
+  overflow: hidden;
+  float: left;
+}
+#project3:hover {
+  background-color: lightgray;
+}
+#project4 {
+  margin-top: 5em;
+  background-color: gray;
+  height: 400px;
+  width: 300px;
+  margin-left: 7.5%;
+  overflow: hidden;
+  float: left;
+}
+#project4:hover {
+  background-color: lightgray;
+}
+
+#contactpage {
+  width: auto;
+  height: 1000px;
+}
+#contactpage p {
+  padding-top: 7em;
+}
+.contactbuttons {
+  margin-left: 36%;
+  width: 40%;
+  padding: 20px;
+  margin-top: 6em;
+  font-size: 5em;
+}
+.fa {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.fa-facebook:hover {
+  color: #3b5998;
+}
+.fa-twitter:hover {
+  color: #55acee;
+}
+.fa-linkedin:hover {
+  color: #007bb5;
+}
+.fa-instagram:hover {
+  color: rgb(177, 22, 55);
+}
+
+.body h2 {
+  padding-top: 3em;
+  text-align: center;
+  font-size: 40px;
+}
+.body p {
+  width: 300px;
+  padding-top: 4em;
+  font-size: 20px;
+  padding-left: 25%;
+}
