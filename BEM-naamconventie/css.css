@@ -24,17 +24,16 @@ h1 {
   width: 100%;
   background-color: #1414148e;
 }
-.menu a {
+.menu-button {
   color: white;
   text-transform: uppercase;
   text-decoration: none;
   overflow: hidden;
   padding-right: 5%;
 }
-.menu a:hover {
+.menu-button:hover {
   color: gray;
 }
-
 .teunpagebody {
   display: flex;
   margin-top: 5em;
@@ -69,6 +68,7 @@ h1 {
   margin-left: 7.5%;
   overflow: hidden;
   float: left;
+  transition: width 2s, height 4s;
 }
 .projects h2 {
   padding-top: 0;
@@ -79,7 +79,10 @@ h1 {
   background-color: lightgray;
   color: black;
 }
-
+.red-hover:hover {
+  background-color: red;
+  color: black;
+}
 .contactpage {
   width: auto;
   height: 1000px;
