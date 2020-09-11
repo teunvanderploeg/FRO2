@@ -3,6 +3,10 @@ html {
   padding: 0;
   margin: 0;
 }
+.page {
+  width: auto;
+  height: 1500px;
+}
 body {
   background-color: #141414;
   color: white;
@@ -31,15 +35,6 @@ h1 {
   color: gray;
 }
 
-#homepage {
-  width: auto;
-  height: 1500px;
-}
-
-#teunpage {
-  width: auto;
-  height: 1500px;
-}
 .teunpagebody {
   display: flex;
   margin-top: 5em;
@@ -53,10 +48,6 @@ h1 {
   margin-top: 5em;
 }
 
-#schoolpage {
-  width: auto;
-  height: 1500px;
-}
 .schoolpagebody {
   display: flex;
   margin-top: 5em;
@@ -70,10 +61,6 @@ h1 {
   margin-top: 5em;
 }
 
-#projectpage {
-  width: auto;
-  height: 1500px;
-}
 .projects {
   margin-top: 5em;
   background-color: gray;
@@ -93,11 +80,11 @@ h1 {
   color: black;
 }
 
-#contactpage {
+.contactpage {
   width: auto;
   height: 1000px;
 }
-#contactpage p {
+.contactpage p {
   padding-top: 7em;
 }
 .contactbuttons {
