@@ -113,12 +113,12 @@ h1 {
   color: rgb(177, 22, 55);
 }
 
-.body h2 {
+h2 {
   padding-top: 3em;
   text-align: center;
   font-size: 40px;
 }
-.body p {
+p {
   width: 300px;
   padding-top: 4em;
   font-size: 20px;
