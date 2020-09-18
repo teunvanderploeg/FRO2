@@ -35,7 +35,7 @@ p {
   width: 100%;
   background-color: #1414148e;
 }
-.menu-button {
+.menu__button {
   color: white;
   text-transform: uppercase;
   text-decoration: none;
@@ -45,11 +45,11 @@ p {
 .menu-button:hover {
   color: gray;
 }
-.teunpagebody {
+.page__teunpagebody {
   display: flex;
   margin-top: 5em;
 }
-.teunpak {
+.page__teunpagebody__teunpak {
   width: auto;
   height: 500px;
   border: 11px inset #5c5c5c;
@@ -58,11 +58,11 @@ p {
   margin-top: 5em;
 }
 
-.schoolpagebody {
+.page__schoolpagebody {
   display: flex;
   margin-top: 5em;
 }
-.maplaatje {
+.page__schoolpagebody__maplaatje {
   width: auto;
   height: 300px;
   border: 11px inset #5c5c5c;
@@ -71,7 +71,7 @@ p {
   margin-top: 5em;
 }
 
-.projects {
+.page__projects {
   margin-top: 5em;
   background-color: gray;
   height: 400px;
@@ -81,10 +81,10 @@ p {
   float: left;
   transition: width 2s, height 4s;
 }
-.projecttitel {
+.page__projecttitel {
   padding-top: 0;
 }
-.projects:hover {
+.page__projects:hover {
   background-color: lightgray;
   color: black;
 }
@@ -96,10 +96,10 @@ p {
   width: auto;
   height: 1000px;
 }
-.contactpage p {
+.page__email {
   padding-top: 7em;
 }
-.contactbuttons {
+.page__contactbuttons {
   margin-left: 36%;
   width: 40%;
   padding: 20px;

@@ -16,11 +16,11 @@
   </head>
   <body>
     <ul class="menu">
-      <a class="menu-button" href="#homepage">Home</a>
-      <a class="menu-button" href="#teunpage">Teun</a>
-      <a class="menu-button" href="#schoolpage">School</a>
-      <a class="menu-button" href="#projectpage">Project</a>
-      <a class="menu-button" href="#contactpage">Contact</a>
+      <a class="menu__button" href="#homepage">Home</a>
+      <a class="menu__button" href="#teunpage">Teun</a>
+      <a class="menu__button" href="#schoolpage">School</a>
+      <a class="menu__button" href="#projectpage">Project</a>
+      <a class="menu__button" href="#contactpage">Contact</a>
     </ul>
     <div id="homepage" class="page">
       <h1>Teun van der Ploeg</h1>
@@ -29,44 +29,52 @@
 
     <div id="teunpage" class="page">
       <h2>Wie ben ik?</h2>
-      <div class="teunpagebody">
+      <div class="page__teunpagebody">
         <p>
           Ik ben Teun van der Ploeg. Ik ben 17 jaar. En ik woon in Anna
           Paulowna. Mijn hobby's zijn sporten, coderen en met vrienden
           afspreken.
         </p>
-        <img class="teunpak" src="plaatjes/teun_pak.png" alt="teun in pak" />
+        <img
+          class="page__teunpagebody__teunpak"
+          src="plaatjes/teun_pak.png"
+          alt="teun in pak"
+        />
       </div>
     </div>
     <div id="schoolpage" class="page">
       <h2>School</h2>
-      <div class="schoolpagebody">
+      <div class="page__schoolpagebody">
         <p>
           Ik ben een eerste jaar mediadeveloper op het MediaCollege Amsterdam
         </p>
-        <img class="maplaatje" src="plaatjes/Ma.jpg" alt="MediaCollege logo" />
+        <img
+          class="schoolpagebody__maplaatje"
+          src="plaatjes/Ma.jpg"
+          alt="MediaCollege logo"
+        />
       </div>
     </div>
     <div id="projectpage" class="page">
-      <h2 class="projecttitel">Mijn projecten</h2>
-      <div class="projects red-hover">
+      <h2 class="page__projecttitel">Mijn projecten</h2>
+      <div class="page__projects red-hover">
         <h2>project1</h2>
       </div>
-      <div class="projects">
+      <div class="page__projects">
         <h2>project2</h2>
       </div>
-      <div class="projects">
+      <div class="page__projects">
         <h2>project3</h2>
       </div>
-      <div class="projects">
+      <div class="page__projects">
         <h2>project4</h2>
       </div>
     </div>
     <div id="contactpage" class="contactpage page">
       <h2>Contact</h2>
-      <p>Mijn email: teun@vanderploeg.net</p>
+      <p class="page__email">Mijn email: teun@vanderploeg.net</p>
 
-      <div class="contactbuttons">
+      <div class="page__contactbuttons">
         <a
           href="https://www.linkedin.com/in/teun-van-der-ploeg"
           class="fa fa-linkedin"
