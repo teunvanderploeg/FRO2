@@ -49,7 +49,7 @@ p {
   display: flex;
   margin-top: 5em;
 }
-.page__teunpagebody__teunpak {
+.page__teunpak {
   width: auto;
   height: 500px;
   border: 11px inset #5c5c5c;
