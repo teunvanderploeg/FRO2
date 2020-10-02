@@ -25,7 +25,12 @@ const boeken = {
       //html var toevoegen
       html += `<section class="boek">`;
       html += `<img class="boek__cover" src="${boek.cover}" alt="${CompleteTitel}"></img>`;
-      html += `<h3> ${CompleteTitel} </h3>`;
+      html += `<h3 class="boek__kopje"> ${CompleteTitel} </h3>`;
+      html += `<span class="boek__uitgave">${boek.uitgave}</span>`;
+      html += `<span class="boek__ean">Ean: ${boek.ean}</span>`;
+      html += `<span class="boek__paginas">${boek.paginas} Pagina's</span>`;
+      html += `<span class="boek__taal">${boek.taal}</span>`;
+      html += `<div class="boek__prijs">&euro; ${boek.prijs}</div>`;
       html += `</section>`;
     });
     uitvoer.innerHTML = html;
