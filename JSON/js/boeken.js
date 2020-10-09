@@ -22,17 +22,54 @@ const boeken = {
       }
       CompleteTitel += boek.titel;
 
+      //lijst met auteurs gaan maken
+      let auteurs = "";
+      boek.auteurs.forEach((writer, i) => {
+        let tussenv = writer.tussenvoegsel ? writer.tussenvoegsel + " ": "";
+        let schijdingteken = ", ";
+        if (i >= boek.auteurs.length-2){ schijdingteken = " en "; }
+        if (i >= boek.auteurs.length-1){ schijdingteken = ""; }
+        auteurs += writer.voornaam + " "+ tussenv + writer.achternaam + schijdingteken;
+      });
+
       //html var toevoegen
       html += `<section class="boek">`;
       html += `<img class="boek__cover" src="${boek.cover}" alt="${CompleteTitel}"></img>`;
-      html += `<h3 class="boek__kopje"> ${CompleteTitel} </h3>`;
-      html += `<span class="boek__uitgave">${boek.uitgave}</span>`;
+      html += `<h3 class="boek__kopje">${CompleteTitel}</h3>`;
+      html += `<p class="boek__auteurs">${auteurs}</p>`;
+      html += `<span class="boek__uitgave">${this.datumOmzetten(boek.uitgave)}</span>`;
       html += `<span class="boek__ean">Ean: ${boek.ean}</span>`;
       html += `<span class="boek__paginas">${boek.paginas} Pagina's</span>`;
       html += `<span class="boek__taal">${boek.taal}</span>`;
-      html += `<div class="boek__prijs">&euro; ${boek.prijs}</div>`;
+      html += `<div class="boek__prijs"> ${boek.prijs.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}</div>`;
       html += `</section>`;
     });
     uitvoer.innerHTML = html;
   },
+  datumOmzetten(datumString){
+    let datum = new Date(datumString);
+    let jaar = datum.getFullYear();
+    let maand = this.maakMaandNaam(datum.getMonth());
+    return `${maand} ${jaar}`;
+  },
+  maakMaandNaam(m){
+    let maand = "";
+    switch (m){
+      case 0 : maand = "Januari"; break;
+      case 1 : maand = "Februari"; break;
+      case 2 : maand = "Maart"; break;
+      case 3 : maand = "April"; break;
+      case 4 : maand = "Mei"; break;
+      case 5 : maand = "Juni"; break;
+      case 6 : maand = "Juli"; break;
+      case 7 : maand = "Augustus"; break;
+      case 8 : maand = "September"; break;
+      case 9 : maand = "Oktober"; break;
+      case 10 : maand = "November"; break;
+      case 11 : maand = "December"; break;
+      default: maand = m;
+    }
+    return maand;
+  }
+
 };
