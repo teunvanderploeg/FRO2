@@ -1,10 +1,13 @@
 const uitvoer = document.getElementById("boeken");
 const xhr = new XMLHttpRequest();
 
+//checkbox pakken taal filter
+const taalKeuze = document.querySelectorAll('.besturing__cb-taal');
+
 xhr.onreadystatechange = () => {
   if (xhr.readyState === 4 && xhr.status === 200) {
     let resultaat = JSON.parse(xhr.responseText);
-    boeken.data = resultaat;
+    boeken.filteren(resultaat);
     boeken.uitvoeren();
   }
 };
@@ -12,6 +15,21 @@ xhr.open("GET", "boeken.json", true);
 xhr.send();
 
 const boeken = {
+
+  taalFilter: ['Engels', 'Duits', 'Nederlands'],
+
+  //filteren van de taal
+  filteren(gegevens){
+    // this.data = gegevens.filter((bk)=> {return bk.taal == this.taalFilter});
+    this.data = gegevens.filter((bk)=>{
+      let bool = false;
+      this.taalFilter.forEach( (taal) => {
+        if(bk.taal == taal) {bool = true}
+      } )
+      return bool;
+    })
+  },
+
   // eigenschap data aangemaakt regel 7
   uitvoeren() {
     let html = "";
@@ -73,3 +91,16 @@ const boeken = {
   }
 
 };
+
+const pasFilterAan = () =>{
+  let gecheckteTaalKeuze = [];
+
+  taalKeuze.forEach(cb => {
+    if(cb.checked) gecheckteTaalKeuze.push(cb.value);
+  });
+  boeken.taalFilter = gecheckteTaalKeuze;
+  boeken.filteren(JSON.parse(xhr.responseText))
+  boeken.uitvoeren();
+}
+
+taalKeuze.forEach(cb => cb.addEventListener('change', pasFilterAan));
