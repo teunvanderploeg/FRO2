@@ -410,5 +410,21 @@
     "taal": "Nederlands",
     "ean": 9789044539455,
     "prijs": 15.99
+  },
+  {
+    "titel": "Art of Invisibility",
+    "voortitel": "The",
+    "cover": "https://media.s-bol.com/Oy6BXyM1jkwr/542x840.jpg",
+    "auteurs": [
+      {
+        "voornaam": "Kevin",
+        "achternaam": "Mitnick"
+      }
+    ],
+    "uitgave": "2017-2",
+    "paginas": 320,
+    "taal": "Engels",
+    "ean":  9780316380508 ,
+    "prijs": 22.99
   }
 ]

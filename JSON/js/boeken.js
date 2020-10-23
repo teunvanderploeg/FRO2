@@ -3,6 +3,7 @@ const xhr = new XMLHttpRequest();
 
 //checkbox pakken taal filter
 const taalKeuze = document.querySelectorAll('.besturing__cb-taal');
+const keuzenSort = document.querySelector('.besturing__select');
 
 xhr.onreadystatechange = () => {
   if (xhr.readyState === 4 && xhr.status === 200) {
@@ -17,6 +18,8 @@ xhr.send();
 const boeken = {
 
   taalFilter: ['Engels', 'Duits', 'Nederlands'],
+  eigenshapSort: 'titel', //sorteereigenschap
+  oplopend: 1, //Volgorde van sorteren
 
   //filteren van de taal
   filteren(gegevens){
@@ -30,8 +33,34 @@ const boeken = {
     })
   },
 
+  //Sorteerfunctie voor de boeken
+  sorteren(){
+    if(this.eigenshapSort == 'titel'){
+      this.data.sort( (a,b) => (a.titel.toUpperCase() > b.titel.toUpperCase() ) ? this.oplopend : -1*this.oplopend);
+    }
+    else if(this.eigenshapSort == 'paginas Laag->hoog'){
+      this.data.sort( (a,b) => (a.paginas > b.paginas ) ? this.oplopend : -1*this.oplopend);
+    }
+    else if(this.eigenshapSort == 'prijsLaag'){
+      this.data.sort( (a,b) => (a.prijs > b.prijs ) ? 1 : -1);
+    }
+    else if(this.eigenshapSort == 'prijsHoog'){
+      this.data.sort( (a,b) => (a.prijs > b.prijs ) ? -1 : 1);
+    }
+    else if(this.eigenshapSort == 'uitgave'){
+      this.data.sort( (a,b) => (a.uitgave > b.uitgave ) ? this.oplopend : -1*this.oplopend);
+    }
+    else if(this.eigenshapSort == 'auteurs'){
+      this.data.sort( (a,b) => (a.auteurs[0].achternaam > b.auteurs[0].achternaam ) ? this.oplopend : -1*this.oplopend);
+    }
+    
+  },
+
   // eigenschap data aangemaakt regel 7
   uitvoeren() {
+    //sorteren
+    this.sorteren();
+    //uitvoeren
     let html = "";
     this.data.forEach((boek) => {
       let CompleteTitel = "";
@@ -103,4 +132,19 @@ const pasFilterAan = () =>{
   boeken.uitvoeren();
 }
 
+const veranderSortEigenschap = () =>{
+  boeken.eigenshapSort = keuzenSort.value;
+  boeken.uitvoeren();
+}
+
 taalKeuze.forEach(cb => cb.addEventListener('change', pasFilterAan));
+
+keuzenSort.addEventListener('change', veranderSortEigenschap);
+
+document.querySelectorAll('.besturing__rb').forEach( rb => rb.addEventListener('change', () =>{
+  if (rb.value == 1 || rb.value == -1){
+    boeken.oplopend = rb.value;
+    boeken.uitvoeren();
+  }
+  
+}))
