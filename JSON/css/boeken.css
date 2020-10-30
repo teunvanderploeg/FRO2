@@ -3,14 +3,40 @@ body {
   padding: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+.ww {
+  position: absolute;
+  right: 2em;
+}
+.ww__aantal {
+  text-align: center;
+  font-size: 0.6em;
+  position: absolute;
+  top: -0.3em;
+  right: 0.1em;
+  background-color: red;
+  color: black;
+  width: 1em;
+  line-height: 1em;
+  padding: 0.5em;
+  text-align: center;
+  border-radius: 2em;
+}
+.ww__icon {
+  height: 3em;
+}
+#boeken {
+  clear: both;
+}
 .boek {
   padding: 1em;
   clear: left;
 }
 .boek__cover {
   float: left;
-  padding: 0 3rem 0 0;
   max-width: 150px;
+}
+.boek__info {
+  margin-left: 180px;
 }
 .boek__kopje {
   margin-top: 0;
@@ -25,7 +51,57 @@ body {
   font-size: 2em;
   color: gray;
 }
+.boek__bestel-knop {
+  font-size: 0.5em;
+  float: right;
+  display: block;
+  text-decoration: none;
+  color: red;
+  padding: 0.5em 1.5em;
+  background-color: white;
+  border: 2px solid red;
+  margin-top: 1em;
+  margin-right: 1em;
+  border-radius: 1em;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-variant: small-caps;
+  transition-duration: 0.2s;
+}
+.boek__bestel-knop:hover {
+  background-color: red;
+  color: white;
+}
 .besturing__sorteren {
   float: right;
   text-align: right;
+}
+
+@media (min-width: 900px) {
+  #boeken {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .besturing__sorteren {
+    float: right;
+    text-align: right;
+  }
+  .boek:nth-child(4n + 2),
+  .boek:nth-child(4n + 3) {
+    background-color: rgb(197, 197, 197);
+  }
+}
+
+@media (min-width: 1350px) {
+  #boeken {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+  .boek:nth-child(4n + 2),
+  .boek:nth-child(4n + 3) {
+    background-color: rgb(255, 255, 255);
+  }
+  .boek:nth-child(2n) {
+    background-color: rgb(197, 197, 197);
+  }
 }

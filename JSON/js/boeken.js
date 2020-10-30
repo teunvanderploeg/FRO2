@@ -5,6 +5,8 @@ const xhr = new XMLHttpRequest();
 const taalKeuze = document.querySelectorAll('.besturing__cb-taal');
 const keuzenSort = document.querySelector('.besturing__select');
 
+const aantalInWinkelWagen = document.querySelector('.ww__aantal');
+
 xhr.onreadystatechange = () => {
   if (xhr.readyState === 4 && xhr.status === 200) {
     let resultaat = JSON.parse(xhr.responseText);
@@ -15,6 +17,17 @@ xhr.onreadystatechange = () => {
 xhr.open("GET", "boeken.json", true);
 xhr.send();
 
+//Onze ww object
+//     met properties: bestelde_boeken
+//     en methods:
+
+const ww = {
+  bestelling: [],
+}
+
+//Onze boeken object
+//     met properties: taalFilter, data, eigenshapSort
+//     en methods: filteren, sorteren, uitvoeren
 const boeken = {
 
   taalFilter: ['Engels', 'Duits', 'Nederlands'],
@@ -82,16 +95,30 @@ const boeken = {
       //html var toevoegen
       html += `<section class="boek">`;
       html += `<img class="boek__cover" src="${boek.cover}" alt="${CompleteTitel}"></img>`;
+      html += `<div class="boek__info">`
       html += `<h3 class="boek__kopje">${CompleteTitel}</h3>`;
       html += `<p class="boek__auteurs">${auteurs}</p>`;
       html += `<span class="boek__uitgave">${this.datumOmzetten(boek.uitgave)}</span>`;
       html += `<span class="boek__ean">Ean: ${boek.ean}</span>`;
       html += `<span class="boek__paginas">${boek.paginas} Pagina's</span>`;
       html += `<span class="boek__taal">${boek.taal}</span>`;
-      html += `<div class="boek__prijs"> ${boek.prijs.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}</div>`;
+      html += `<div class="boek__prijs"> ${boek.prijs.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}`;
+      html += `<a href="#" class="boek__bestel-knop" data-role="${boek.ean}">bestellen</a></div>`;
+      html += `</div>`;
       html += `</section>`;
     });
     uitvoer.innerHTML = html;
+    // de gemaakte knoppen voorzien van eventlistener
+    document.querySelectorAll('.boek__bestel-knop').forEach( knop => {
+      knop.addEventListener('click', e => {
+        e.preventDefault();
+        let boekID = e.target.getAttribute('data-role');
+        console.log(boekID);
+        let gekliktBoek = this.data.filter(b => b.ean == boekID);
+        ww.bestelling.push(gekliktBoek[0]);
+        aantalInWinkelWagen.innerHTML = ww.bestelling.length;
+      })
+    });
   },
   datumOmzetten(datumString){
     let datum = new Date(datumString);
