@@ -22,8 +22,13 @@ xhr.send();
 //     en methods:
 
 const ww = {
-  bestelling: [],
+  bestelling: []
 }
+
+
+ww.bestelling = JSON.parse(localStorage.wwBestelling);
+aantalInWinkelWagen.innerHTML = ww.bestelling.length;
+
 
 //Onze boeken object
 //     met properties: taalFilter, data, eigenshapSort
@@ -117,6 +122,7 @@ const boeken = {
         let gekliktBoek = this.data.filter(b => b.ean == boekID);
         ww.bestelling.push(gekliktBoek[0]);
         aantalInWinkelWagen.innerHTML = ww.bestelling.length;
+        localStorage.wwBestelling = JSON.stringify(ww.bestelling);
       })
     });
   },
