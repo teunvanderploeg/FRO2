@@ -22,12 +22,27 @@ xhr.send();
 //     en methods:
 
 const ww = {
-  bestelling: []
+  bestelling: [],
+
+    boekToevoegen(obj){
+      this.bestelling.push(obj);
+      aantalInWinkelWagen.innerHTML = this.bestelling.length;
+    },
+
+    //data in local storage opslaan
+    dataOpslaan(){
+      localStorage.wwBestelling = JSON.stringify(this.bestelling);
+    },
+
+  dataOphalen(){
+    // data uit Local Storage halen
+    this.bestelling = JSON.parse(localStorage.wwBestelling);
+    aantalInWinkelWagen.innerHTML = this.bestelling.length;
+  }
 }
 
-
-ww.bestelling = JSON.parse(localStorage.wwBestelling);
-aantalInWinkelWagen.innerHTML = ww.bestelling.length;
+// data uit Local Storage halen
+ww.dataOphalen();
 
 
 //Onze boeken object
@@ -120,9 +135,7 @@ const boeken = {
         let boekID = e.target.getAttribute('data-role');
         console.log(boekID);
         let gekliktBoek = this.data.filter(b => b.ean == boekID);
-        ww.bestelling.push(gekliktBoek[0]);
-        aantalInWinkelWagen.innerHTML = ww.bestelling.length;
-        localStorage.wwBestelling = JSON.stringify(ww.bestelling);
+        ww.boekToevoegen(gekliktBoek[0]);
       })
     });
   },
