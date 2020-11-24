@@ -100,6 +100,10 @@ body {
 #haalFormulier:checked ~ .bestelformulier {
   transform: translateX(0vw);
 }
+.bestelformulier__cover {
+  height: 3em;
+}
+
 @media (min-width: 900px) {
   #boeken {
     display: grid;

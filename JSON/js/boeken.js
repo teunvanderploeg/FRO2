@@ -19,25 +19,44 @@ xhr.send();
 
 //Onze ww object
 //     met properties: bestelde_boeken
-//     en methods:
+//     en methods: boekToevoegen, dataOphalen, uitvoeren
 
 const ww = {
   bestelling: [],
 
     boekToevoegen(obj){
-      this.bestelling.push(obj);
+      ww.bestelling.push(obj);
       aantalInWinkelWagen.innerHTML = this.bestelling.length;
-    },
-
-    //data in local storage opslaan
-    dataOpslaan(){
       localStorage.wwBestelling = JSON.stringify(this.bestelling);
     },
 
   dataOphalen(){
     // data uit Local Storage halen
     this.bestelling = JSON.parse(localStorage.wwBestelling);
-    aantalInWinkelWagen.innerHTML = this.bestelling.length;
+    this.uitvoeren();
+  },
+  uitvoeren(){
+
+    let html = `<table>`;
+    let totaal = 0;
+    this.bestelling.forEach( boekje =>{
+      let CompleteTitel = "";
+      if (boekje.voortitel) {
+        CompleteTitel += boekje.voortitel + " ";
+      }
+      CompleteTitel += boekje.titel;
+
+      html += `<tr>`;
+      html += `<td><img class="bestelformulier__cover" src="${boekje.cover}" alt="${CompleteTitel}"></td>`;
+      html += `<td>${CompleteTitel}</td>`;
+      html += `<td>${boekje.prijs.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}</td>`;
+      html += `</tr>`;
+      totaal += boekje.prijs;
+    })
+    html += `<tr><td colspan="3">Totaal:</td><td>${totaal.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}</td></tr>`;
+    html += `</table>`;
+    document.getElementById('uitvoer').innerHTML = html;
+    aantalInWinkelWagen.innerHTML = ww.bestelling.length;
   }
 }
 
