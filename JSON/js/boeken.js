@@ -23,22 +23,35 @@ xhr.send();
 
 const ww = {
   bestelling: [],
-
+  
     boekToevoegen(obj){
-      ww.bestelling.push(obj);
-      aantalInWinkelWagen.innerHTML = this.bestelling.length;
+      let gevonden = this.bestelling.filter( b => b.ean == obj.ean);
+      if (gevonden.length == 0){
+        
+        obj.besteldAantal++;
+        ww.bestelling.push(obj);
+      }
+      else{
+        gevonden[0].besteldAantal++;
+      }
+      
+      
       localStorage.wwBestelling = JSON.stringify(this.bestelling);
+      this.uitvoeren();
     },
 
   dataOphalen(){
     // data uit Local Storage halen
+    if(localStorage.wwBestelling){
     this.bestelling = JSON.parse(localStorage.wwBestelling);
+    }
     this.uitvoeren();
   },
   uitvoeren(){
 
     let html = `<table>`;
     let totaal = 0;
+    let totaalbesteld = 0;
     this.bestelling.forEach( boekje =>{
       let CompleteTitel = "";
       if (boekje.voortitel) {
@@ -49,15 +62,70 @@ const ww = {
       html += `<tr>`;
       html += `<td><img class="bestelformulier__cover" src="${boekje.cover}" alt="${CompleteTitel}"></td>`;
       html += `<td>${CompleteTitel}</td>`;
+      html += `<td class="bestelformulier__aantal">
+      <i class="fas fa-arrow-left bestelformulier__verlaag" data-role="${boekje.ean}"></i>
+      ${boekje.besteldAantal}
+      <i class="fas fa-arrow-right bestelformulier__verhoog" data-role="${boekje.ean}"></i>
+      </td>`;
       html += `<td>${boekje.prijs.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}</td>`;
+      html += `<td><i class="fas fa-trash-alt bestelformulier__trash" data-rol="${boekje.ean}"></i></td>`;
       html += `</tr>`;
-      totaal += boekje.prijs;
+      totaal += boekje.prijs * boekje.besteldAantal;
+      totaalbesteld += boekje.besteldAantal;
     })
     html += `<tr><td colspan="3">Totaal:</td><td>${totaal.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}</td></tr>`;
     html += `</table>`;
     document.getElementById('uitvoer').innerHTML = html;
-    aantalInWinkelWagen.innerHTML = ww.bestelling.length;
+    aantalInWinkelWagen.innerHTML = totaalbesteld;
+    this.trashActiveren()
+    this.hogerLagerActiveren();
+  },
+  hogerLagerActiveren(){
+    let hogerknoppen = document.querySelectorAll('.bestelformulier__verhoog')
+    hogerknoppen.forEach(knop => {
+      knop.addEventListener('click', e =>{
+        let ophoogID = e.target.getAttribute('data-role');
+        let opTeHogenBoek = this.bestelling.filter(boek => boek.ean == ophoogID);
+        if(opTeHogenBoek[0].besteldAantal >= 10000){
+
+        }else{
+          opTeHogenBoek[0].besteldAantal ++;
+        }
+        
+        localStorage.wwBestelling = JSON.stringify(this.bestelling);
+        this.uitvoeren();
+      })
+    })
+
+    //verlaag knop
+    let lagerknoppen = document.querySelectorAll('.bestelformulier__verlaag')
+    lagerknoppen.forEach(knop => {
+      knop.addEventListener('click', e =>{
+        let verlaagID = e.target.getAttribute('data-role');
+        let teVerLagenAantal = this.bestelling.filter(boek => boek.ean == verlaagID);
+        if(teVerLagenAantal[0].besteldAantal > 1){
+          teVerLagenAantal[0].besteldAantal --;
+        }else{
+          //boek verwijderen
+          this.bestelling = this.bestelling.filter( bk => bk.ean != verlaagID);
+        }
+        localStorage.wwBestelling = JSON.stringify(this.bestelling);
+        this.uitvoeren();
+      })
+    })
+  },
+  trashActiveren() {
+    document.querySelectorAll('.bestelformulier__trash').forEach(trash =>{
+      trash.addEventListener('click', e => {
+        let teVerwijderenBoekID = e.target.getAttribute('data-rol');
+        this.bestelling = this.bestelling.filter( bk => bk.ean != teVerwijderenBoekID);
+        // localstorage bijwerken
+        localStorage.wwBestelling = JSON.stringify(this.bestelling);
+        this.uitvoeren();
+      })
+    })
   }
+
 }
 
 // data uit Local Storage halen
@@ -115,6 +183,10 @@ const boeken = {
     //uitvoeren
     let html = "";
     this.data.forEach((boek) => {
+
+      // boek eigenschap aantal bestelde boeken
+      boek.besteldAantal = 0;
+
       let CompleteTitel = "";
       if (boek.voortitel) {
         CompleteTitel += boek.voortitel + " ";
