@@ -85,6 +85,23 @@ nav {
     margin-left: 0.1em;
     flex: 1 1 auto;
   }
+  .nav__link--schuif-in .nav__tekst {
+    animation: ijl-na-top 1.1s forwards;
+  }
+  @keyframes ijl-na-top {
+    0% {
+      transform: translateY(-0.7em);
+    }
+    50% {
+      transform: translateY(0.2em);
+    }
+    75% {
+      transform: translateY(-0.1em);
+    }
+    100% {
+      transform: translateY(0em);
+    }
+  }
 }
 
 main {
