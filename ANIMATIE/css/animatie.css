@@ -48,6 +48,25 @@ nav {
   background-color: rgb(114, 114, 114);
 }
 
+@media screen and (min-width: 600px) {
+  .nav {
+    flex-direction: row;
+    flex-grow: initial;
+    width: 100vw;
+  }
+  .nav__link {
+    transform: translateY(-2.8em);
+  }
+  .nav__link--schuif-in {
+    transform: translateY(0);
+  }
+  .nav__item {
+    margin-top: 0;
+    margin-left: 0.1em;
+    flex: 1 1 auto;
+  }
+}
+
 main {
   min-height: 100vh;
   display: flex;
