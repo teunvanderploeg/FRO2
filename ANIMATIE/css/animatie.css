@@ -29,7 +29,7 @@ nav {
   background-color: rgb(114, 114, 114);
 }
 .nav__item {
-  margin-bottom: 0.1em;
+  margin-top: 0.1em;
 }
 .nav__link {
   color: white;
@@ -89,4 +89,8 @@ main {
 .animeer-knop:hover {
   background: #555;
   color: #222;
+}
+
+.fas.verberg {
+  display: none;
 }

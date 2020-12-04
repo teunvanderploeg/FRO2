@@ -19,5 +19,7 @@ menuKnop.addEventListener('click', ()=>{
         setTimeout(()=>{
             item.classList.toggle('nav__link--schuif-in');
         }, 50 * index);
-    })
+    });
+    document.querySelector('.fa-bars').classList.toggle('verberg');
+    document.querySelector('.fa-times').classList.toggle('verberg');
 });
