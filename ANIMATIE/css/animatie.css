@@ -19,6 +19,15 @@ nav {
   display: flex;
   flex-direction: column;
 }
+.nav__knop {
+  padding: 0.5em 0.6em;
+  box-sizing: border-box;
+  width: 2.2em;
+}
+.nav__knop:hover {
+  color: #333;
+  background-color: rgb(114, 114, 114);
+}
 .nav__item {
   margin-bottom: 0.1em;
 }
@@ -28,6 +37,15 @@ nav {
   background-color: #222;
   display: block;
   padding: 0.8em 0.3em;
+  transform: translateX(-8.4em);
+  transition: transform 0.5s ease-in-out;
+}
+.nav__link--schuif-in {
+  transform: translateX(0);
+}
+.nav__link:hover {
+  color: #333;
+  background-color: rgb(114, 114, 114);
 }
 
 main {
@@ -39,14 +57,21 @@ main {
 }
 
 .vlakje {
-  background-color: black;
-  width: 10vw;
-  height: 10vw;
+  background-color: rgb(255, 255, 255);
+  width: 0.3vw;
+  height: 0.3vw;
+  border-left: 50px solid rgb(0, 255, 255);
+  border-right: 50px solid rgb(255, 0, 0);
+  border-bottom: 50px solid rgb(0, 255, 0);
+  border-top: 50px solid rgb(0, 0, 255);
+  display: inline-block;
+  border-radius: 2em;
+
   transform: translateX(2em);
   transition: transform 1s cubic-bezier(0.43, 0.4, 0.45, 1);
 }
 .vlakje-naar-rechts {
-  transform: translateX(70em) rotate(360deg);
+  transform: translateX(70em) rotate(720deg);
 }
 
 .animeer-knop {
