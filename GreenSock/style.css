@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  background-color: gray;
+  background-image: url("img/external-content.duckduckgo_eddit.jpg");
+  background-size: cover;
+  font-family: "Roboto", sans-serif;
+}
+.h1 {
+  text-align: center;
+  font-size: 3.97em;
+  color: rgb(85, 85, 85);
+  font-weight: 900;
+}
+.plane {
+  padding-top: 2em;
+  margin-left: 90%;
+  width: 10em;
+  bottom: 4.2em;
+  position: absolute;
+}
+.svg_plane {
+  transform: rotate(40deg);
+}
