@@ -5,9 +5,11 @@ document.querySelector('.animeer-knop').addEventListener('click', (e) =>{
 
 
 // na bepaalde tijd komt vlakje weer terug
-setTimeout(()=>{
+setTimeout(vlakje_naar_rechts, 2000);
+
+function vlakje_naar_rechts(){
     document.querySelector('.vlakje').classList.toggle('vlakje-naar-rechts');
-}, 2000);
+}
 
 // menu klik nav__knop
 
@@ -23,3 +25,4 @@ menuKnop.addEventListener('click', ()=>{
     document.querySelector('.fa-bars').classList.toggle('verberg');
     document.querySelector('.fa-times').classList.toggle('verberg');
 });
+

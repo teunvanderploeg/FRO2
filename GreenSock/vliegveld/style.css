@@ -6,6 +6,7 @@ body {
   background-image: url("img/external-content.duckduckgo_eddit.jpg");
   background-size: cover;
   font-family: "Roboto", sans-serif;
+  overflow: hidden;
 }
 .h1 {
   text-align: center;
@@ -16,10 +17,14 @@ body {
 .plane {
   padding-top: 2em;
   margin-left: 90%;
-  width: 10em;
+  height: 10em;
   bottom: 4.2em;
   position: absolute;
 }
 .svg_plane {
   transform: rotate(40deg);
+}
+.img_plane {
+  transform: rotate(90deg);
+  height: 10em;
 }
