@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(211, 211, 211);
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+#Layer_1 {
+  height: 60%;
+}
+#_hart_ {
+  cursor: pointer;
+}
+.love {
+  color: purple;
+}
+#_aAnders_ {
+  cursor: pointer;
+}
+#_n_ {
+  cursor: pointer;
+}
+#_d_ {
+  cursor: pointer;
+}
+#_e_ {
+  cursor: pointer;
+}
+#_r_ {
+  cursor: pointer;
+}
+#_s_ {
+  cursor: pointer;
+}
+
+#_maRechthoek_ {
+  cursor: cell;
+}
+.rechthoek {
+  width: 1em;
+  height: 1em;
+  background-color: black;
+}
+#_m_ {
+  cursor: pointer;
+}
+.M {
+  color: purple;
+}
+#_aMa_ {
+  cursor: pointer;
+}
+#_g_ {
+  cursor: pointer;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+@media only screen and (max-width: 500px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #Layer_1 {
+    height: 100%;
+  }
+}
