@@ -2,7 +2,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(211, 211, 211);
+  background-color: gray;
   font-family: "Roboto", sans-serif;
   overflow-x: hidden;
 }
@@ -63,6 +63,37 @@ p {
   padding: 0;
   margin: 0;
 }
+
+.stage {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.stage span {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #fcff3b8a;
+  box-shadow: 0 0 5px rgba(255, 252, 72, 0.5), 0 0 15px rgba(255, 253, 110, 0.4),
+    0 0 30px rgba(255, 254, 224, 0.3);
+  border-radius: 50%;
+  filter: blur(2px);
+  /* left: 100px;
+  top: 100px; */
+}
+.stage span.blur {
+  width: 150px;
+  height: 150px;
+  filter: blur(15px);
+  /* left: 200px;
+  top: 200px;
+  opacity: .2; */
+}
+
 @media only screen and (max-width: 500px) {
   .grid {
     display: grid;
