@@ -6,8 +6,6 @@ body {
   font-family: "Roboto", sans-serif;
   overflow-x: hidden;
 }
-body span {
-}
 .grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -90,9 +88,6 @@ p {
   width: 150px;
   height: 150px;
   filter: blur(15px);
-  /* left: 200px;
-  top: 200px;
-  opacity: .2; */
 }
 
 @media only screen and (max-width: 500px) {

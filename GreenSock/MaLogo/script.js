@@ -86,7 +86,7 @@ function makeLight(i) {
 	gsap.set(span, {
 		left: gsap.utils.random(0, stage.offsetWidth),
 		top: gsap.utils.random(0, stage.offsetHeight),
-		scale: gsap.utils.random(.8, 1.2, .1),
+		scale: gsap.utils.random(.6, .9, .1),
 		opacity: 0
 	});
 
