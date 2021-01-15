@@ -1,31 +1,58 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+<Header :totalIncome="state.totalIncome" />
+<Form @add-income="AddIncome" />
 </template>
 
+<script>
+import {reactive, computed} from 'vue';
+import Header from './components/Header';
+import Form from './components/Form';
+
+export default {
+  setup(){
+    const state = reactive({
+      income: [],
+      totalIncome: computed(() => {
+        let temp = 0;
+        if (state.income.length > 0){
+          for (let i = 0; i < state.income.length; i++){
+            temp += state.income[i].value;
+          }
+        }
+
+        return temp;
+      }) 
+    });
+
+    function AddIncome(data){
+      let d = data.date.split("-");
+      let newD = new Date(d[0], d[1], d[2]);
+
+      state.income = [...state.income, {
+        id: Date.now(),
+        desc: data.desc,
+        value: parseInt(data.value),
+        date: newD.getTime()
+      }];
+      console.log(state.income);
+    }
+
+    return{
+    Header, Form, state, AddIncome
+    }
+  }
+}
+
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Fira Sans', sans-serif;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+body{
+  background: rgb(93, 93, 93);
 }
 </style>
-<style src="./assets/tailwind.css">
