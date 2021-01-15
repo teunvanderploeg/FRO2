@@ -23,7 +23,15 @@ export default {
         }
 
         return temp;
-      }) 
+      }),
+      sortedIncome: computed(() => {
+        let temp = [];
+
+        temp = state.income.sort(function (a,b){
+          return b.date - a.date;
+        });
+        return temp;
+      })
     });
 
     function AddIncome(data){
