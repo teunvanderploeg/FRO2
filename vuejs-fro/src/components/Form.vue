@@ -1,8 +1,9 @@
 <template>
   <form @submit.prevent="FormHandler">
-      <input type="text" placeholder="Description..." v-model="formData.desc">
-      <input type="number" placeholder="Value..." v-model="formData.value">
-      <input type="date" placeholder="Date..." v-model="formData.date">
+      <input type="text" placeholder="Beschrijving..." v-model="formData.desc">
+      <input type="number" placeholder="Hoeveelheid..." v-model="formData.value">
+      <input type="date" placeholder="Datum..." v-model="formData.date">
+      <input type="text" placeholder="URL Plaatje..." v-model="formData.url">
       <input type="submit" value="SUBMIT">
   </form>
 </template>
@@ -18,7 +19,8 @@ export default {
         const formData = reactive({
             desc: null,
             value: null,
-            date: null
+            date: null,
+            url: null
         });
 
         function FormHandler(){
@@ -26,11 +28,13 @@ export default {
                 desc: formData.desc,
                 value: formData.value,
                 date: formData.date,
+                url: formData.url,
             });
 
             formData.desc = null;
             formData.value = null;
             formData.date = null;
+            formData.url = null;
         }
         return{
             FormHandler, formData

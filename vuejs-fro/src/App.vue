@@ -42,7 +42,8 @@ export default {
         id: Date.now(),
         desc: data.desc,
         value: parseInt(data.value),
-        date: newD.getTime()
+        date: newD.getTime(),
+        url: data.url,
       }];
       console.log(state.income);
     }

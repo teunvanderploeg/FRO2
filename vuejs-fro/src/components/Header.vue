@@ -1,16 +1,16 @@
 <template>
-    <header>
-      <h1>Income Tracker</h1>
-      <div class="total-income">€{{ totalIncome }}</div>
-    </header>
+  <header>
+    <h1>Budgetbeheerder</h1>
+    <div class="total-income">€{{ totalIncome }}</div>
+  </header>
 </template>
 
 <script>
 export default {
-    props: {
-        totalIncome: Number
-    }
-}
+  props: {
+    totalIncome: Number,
+  },
+};
 </script>
 
 <style scoped>
@@ -27,9 +27,9 @@ header h1 {
   font-size: 28px;
 }
 header .total-income {
-  font-family: 'Fira Code', 'Fira Sans', sans-serif;
+  font-family: "Fira Code", "Fira Sans", sans-serif;
   background-color: #ff0000;
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   font-weight: 900;
   padding: 5px 10px;
